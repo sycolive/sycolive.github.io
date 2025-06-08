@@ -1,0 +1,799 @@
+/* Animate.css පුස්තකාලය සහ Google Fonts ආනයනය කරන්න */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* සාමාන්‍ය ශෛලීන් */
+body {
+    font-family: 'Poppins', sans-serif; /* නව font එක */
+    margin: 0;
+    padding: 0;
+    line-height: 1.8; /* Readability වැඩි කිරීමට */
+    overflow-x: hidden;
+    cursor: none; /* Mouse pointer effect එක සඳහා default pointer එක ඉවත් කිරීමට */
+    background-color: #121212; /* අලුත් ඉතා අඳුරු පසුබිම */
+    color: #e0e0e0; /* ලා අකුරු වර්ණය */
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Global Background Effect (Particles.js container) */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* සියලුම content වලට යටින් තැබීමට */
+    background-color: #0a0a0a; /* Particles.js සඳහා පසුබිම් වර්ණය */
+}
+
+/* Mouse Trail Effect Container */
+#mouse-trail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998; /* අනිත් content වලට යටින් තැබීමට */
+    overflow: hidden; /* trail එක පිටතට නොයාමට */
+}
+
+.mouse-trail-circle {
+    position: absolute;
+    width: 15px; /* ප්‍රමාණය */
+    height: 15px;
+    background-color: rgba(0, 153, 255, 0.5); /* නිල් පැහැය, තරමක් විනිවිද පෙනෙන */
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    animation: fadeOutTrail 1s forwards; /* අතුරුදහන් වීමේ animation */
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes fadeOutTrail {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* අඳුරු තේමාව - නව වර්ණ */
+body.dark-theme {
+    background-color: #0a0a0a; /* තව අඳුරු කළ පසුබිම */
+    color: #f0f0f0; /* ලා අකුරු වර්ණය */
+}
+
+body.dark-theme .section {
+    background: rgba(26, 26, 26, 0.7); /* කොටස් වලට ගැඹුරු අඳුරු විනිවිද පෙනෙන පසුබිම */
+    backdrop-filter: blur(5px); /* blur effect */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+body.dark-theme .alt-bg {
+    background-color: rgba(34, 34, 34, 0.7); /* විකල්ප කොටස් වලට තව ටිකක් ලා අඳුරු විනිවිද පෙනෙන */
+}
+
+header {
+    background-color: rgba(26, 26, 26, 0.95); /* Header එකට අඳුරු විනිවිද පෙනෙන පසුබිමක් */
+    backdrop-filter: blur(10px); /* blur effect */
+    color: #f0f0f0;
+    padding: 0.8rem 0; /* තරමක් අඩු padding */
+    border-bottom: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px; /* උපරිම පළල වැඩි කිරීම */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* SECTION එක තුළ ඇති CONTAINER වලට පමණක් අදාළ වන පරිදි වෙනස් කරන ලදී */
+.section .container {
+    flex-direction: column; /* මේ තුළ ඇති අංග එකිනෙකට යටින් පේළි ගැස්වීමට */
+    align-items: center; /* තිරස් අතට මධ්‍යගත කිරීමට */
+}
+
+.logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient Text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    animation: neonGlow 1.5s ease-in-out infinite alternate; /* Neon glow effect */
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 5px rgba(0, 198, 255, 0.4), 0 0 10px rgba(0, 114, 255, 0.4);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(0, 198, 255, 0.8), 0 0 25px rgba(0, 114, 255, 0.8), 0 0 40px rgba(0, 198, 255, 0.6);
+    }
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Icons අතර ඉඩ වැඩි කිරීම */
+}
+
+/* Navigation Icons and Tooltips */
+header nav li a {
+    color: #c0c0c0;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 10px; /* Icons වලට padding */
+    border-radius: 50%; /* Icon එක වටකුරු කිරීමට */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Tooltip සඳහා */
+    overflow: hidden;
+    width: 50px; /* Icon area width */
+    height: 50px; /* Icon area height */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+header nav li a i {
+    font-size: 1.8em; /* Icon ප්‍රමාණය */
+    color: #00eaff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Icon Hover Effects */
+header nav li a:hover {
+    background-color: rgba(0, 198, 255, 0.2); /* Hover එකේදී විනිවිද පෙනෙන නිල් පසුබිමක් */
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5), 0 0 25px rgba(0, 198, 255, 0.3);
+    transform: translateY(-5px) scale(1.05); /* Icon උඩට එසවීම සහ තරමක් විශාල කිරීම */
+    border: 2px solid #00eaff;
+}
+
+header nav li a:hover i {
+    color: #ffd700; /* Hover එකේදී Icon වර්ණය රන්වන් කිරීමට */
+    transform: rotate(15deg) scale(1.1); /* Hover එකේදී icon කරකැවීම සහ විශාල කිරීම */
+}
+
+/* Tooltip Styles */
+header nav li a::after {
+    content: attr(data-tooltip); /* data-tooltip attribute එකෙන් text එක ගන්න */
+    position: absolute;
+    bottom: -35px; /* Icon එකට යටින් පෙන්වීමට */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1001;
+}
+
+header nav li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* අඳුරු overlay */
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+    overflow: hidden;
+    height: calc(100vh - 100px); /* Adjust height based on header, or set to 100vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    font-size: 4rem;
+    text-shadow: 0 0 15px rgba(0, 200, 255, 0.6), 0 0 25px rgba(0, 100, 255, 0.6);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 0 auto; /* Removed bottom margin to remove space for button */
+}
+
+.btn {
+    background: linear-gradient(45deg, #00eaff, #0072ff); /* Gradient Button */
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 25px rgba(0, 200, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #0072ff, #00eaff);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 200, 255, 0.5);
+}
+
+.btn-small {
+    background: linear-gradient(45deg, #4CAF50, #2E7D32); /* කොළ පැහැති Gradient */
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-small:hover {
+    background: linear-gradient(45deg, #2E7D32, #4CAF50);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.5);
+}
+
+
+/* Sections */
+.section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated Headings */
+.animated-heading {
+    font-size: 3.5rem;
+    margin-bottom: 10px; /* section-description එකට ඉඩ තැබීමට */
+    position: relative;
+    display: block; /* මෙය සෑම විටම තමන්ගේම පේළියක දිස්වන බව සහතික කරයි */
+    color: #00eaff; /* මාතෘකා වලට දීප්තිමත් නිල්-කොළ */
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+    /* Parallax Effect for headings (JS will set --scroll-y) */
+    transform: translateY(var(--scroll-y, 0px));
+    transition: transform 0.1s linear; /* smooth transition for parallax */
+}
+
+/* "Our Services" Heading සඳහා තිබූ Glowing Dots CSS සම්පූර්ණයෙන් ඉවත් කරන ලදී. */
+
+
+.section-description {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 20px auto 50px auto; /* Added 20px margin-top */
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+
+
+
+.alt-bg {
+    background-color: rgba(34, 34, 34, 0.7); /* විකල්ප කොටස් වලට තව ටිකක් ලා අඳුරු විනිවිද පෙනෙන */
+}
+
+/* Services Grid */
+.service-grid, .free-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Keep auto-fit for services */
+    gap: 40px;
+    margin-top: 50px;
+    justify-content: center; /* Grid items container එක තුළ මධ්‍යයට ස්ථානගත කිරීමට */
+}
+
+.service-item {
+    background: rgba(42, 42, 42, 0.8); /* විනිවිද පෙනෙන පසුබිමක් */
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid rgba(0, 200, 255, 0.1);
+}
+
+.service-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 40px rgba(0, 200, 255, 0.2);
+    border-color: #00eaff;
+    background: rgba(51, 51, 51, 0.9);
+}
+
+/* Free Service Items (similar to service-item but less interactive collapse) */
+.free-service-item {
+    background: rgba(42, 42, 42, 0.8);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: transform 0.4s ease;
+    border: 1px solid rgba(0, 200, 255, 0.1);
+}
+
+.free-service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 200, 255, 0.2);
+    border-color: #00eaff;
+    background: rgba(51, 51, 51, 0.9);
+}
+
+/* Service Header */
+.service-header {
+    display: flex;
+    justify-content: center; /* Icons and Text center */
+    align-items: center;
+    gap: 15px; /* Gap between icon, text, and toggle icon */
+    margin-bottom: 20px;
+    position: relative; /* For toggle icon positioning */
+    padding-right: 40px; /* Space for toggle icon */
+}
+
+.service-item .service-icon, .free-service-item .free-service-icon {
+    font-size: 3.5rem;
+    color: #00eaff;
+    transition: transform 0.4s ease, color 0.4s ease;
+    margin-bottom: 0; /* Remove previous margin */
+}
+
+.service-item:hover .service-icon, .free-service-item:hover .free-service-icon {
+    transform: scale(1.15) rotate(5deg);
+    color: #ffd700;
+}
+
+.service-item h3, .free-service-item h3 {
+    color: #f0f0f0;
+    margin: 0;
+    font-size: 1.8rem;
+    transition: color 0.4s ease;
+}
+
+.service-item:hover h3, .free-service-item:hover h3 {
+    color: #00eaff;
+}
+
+/* Toggle Icon for Services */
+.toggle-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg); /* Initial state */
+    font-size: 1.5rem;
+    color: #00eaff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.service-item.active .toggle-icon {
+    transform: translateY(-50%) rotate(180deg); /* Rotate when active */
+}
+
+/* Service Details - Collapsible */
+.service-details {
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding-top 0.5s ease-out, border-top 0.5s ease-out; /* Add transition for padding and border */
+    text-align: left;
+    color: #c0c0c0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding-top: 0; /* Initially no padding */
+    border-top: none; /* Initially no border */
+}
+
+.service-item.active .service-details {
+    max-height: 300px; /* Adjust based on content height */
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.service-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0 0 0;
+}
+
+.service-details li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-details li::before {
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #4CAF50; /* කොළ පාට tick */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+}
+
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* පෙරනිමියෙන් තීරු 2ක් පෙන්වීමට */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 3px solid transparent; /* Elegant border for hover */
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 200, 255, 0.3);
+    border-color: #00eaff; /* Hover effect */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    text-align: left;
+    display: flex;
+    align-items: flex-end; /* Text bottom align */
+    min-height: 80px; /* Ensures visible area for overlay */
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.95); /* Black w/ more opacity */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px; /* Ensure space for caption */
+    font-size: 1.2rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* පෙරනිමියෙන් තීරු 2ක් පෙන්වීමට */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.video-item {
+    background: rgba(42, 42, 42, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 200, 255, 0.2);
+}
+
+.video-item .tiktok-embed { /* TikTok embed element එකට style */
+    margin: 0 auto 20px auto; /* Center the embed */
+    width: 100%; /* Full width */
+    height: auto; /* Auto height */
+    max-height: 550px; /* Max height for TikTok video */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10px;
+}
+/* TikTok embed එකේ actual iframe හෝ div එකට style */
+.tiktok-embed iframe,
+.tiktok-embed div[data-video-id] {
+    width: 100% !important;
+    height: 500px !important; /* Fixed height for consistent look, adjust as needed */
+    border-radius: 10px !important;
+}
+
+
+/* Contact Form */
+.contact-form {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(26, 26, 26, 0.8);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border: 1px solid rgba(0, 200, 255, 0.1);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 22px);
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: rgba(42, 42, 42, 0.7);
+    color: #f0f0f0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 12px rgba(0, 234, 255, 0.3);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-info {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #c0c0c0;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-info i {
+    margin-right: 15px;
+    color: #00eaff;
+    font-size: 1.4rem;
+}
+
+
+/* Footer */
+footer {
+    background: rgba(13, 13, 13, 0.9);
+    color: #a0a0a0;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+}
+
+.social-links a {
+    color: #f0f0f0;
+    font-size: 2.2rem;
+    margin: 0 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00eaff;
+    transform: translateY(-5px) scale(1.1);
+}
+
+footer p {
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    .logo {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    header nav ul {
+        gap: 15px;
+        flex-wrap: wrap; /* Wrap links */
+        justify-content: center;
+    }
+    header nav li a {
+        width: 45px; /* Icon area width */
+        height: 45px; /* Icon area height */
+        padding: 8px; /* Icons වලට padding */
+    }
+    header nav li a i {
+        font-size: 1.5em;
+    }
+    header nav li a::after {
+        bottom: -30px; /* Adjust tooltip position */
+        font-size: 0.7rem;
+    }
+    .hero h2 {
+        font-size: 3rem;
+    }
+    .section h2 {
+        font-size: 2.5rem;
+    }
+    .section-description {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    .service-grid, .free-service-grid {
+        grid-template-columns: 1fr; /* Service grids 1fr තවමත් මෙහි තිබේ නම් */
+    }
+    .gallery-grid img {
+        height: 280px;
+    }
+    .video-item .tiktok-embed {
+        max-width: 100%;
+    }
+    .video-item .tiktok-embed iframe,
+    .video-item .tiktok-embed div[data-video-id] {
+        height: 450px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 100px 0;
+    }
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .section {
+        padding: 50px 0;
+    }
+    .section h2 {
+        font-size: 2rem;
+    }
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    .service-item, .free-service-item, .contact-form {
+        padding: 25px;
+    }
+    .service-item h3, .free-service-item h3 {
+        font-size: 1.5rem;
+    }
+    .service-item .service-icon, .free-service-item .free-service-icon {
+        font-size: 3rem;
+    }
+    .contact-form input, .contact-form textarea {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    .contact-info p {
+        font-size: 1.05rem;
+    }
+    .video-item .tiktok-embed iframe,
+    .video-item .tiktok-embed div[data-video-id] {
+        height: 400px !important;
+    }
+    .social-links a {
+        font-size: 1.8rem;
+        margin: 0 10px;
+    }
+
+    /* Gallery and Video grids for very small screens (576px and below) */
+    .gallery-grid, .video-grid {
+        grid-template-columns: 1fr; /* Force 1 column on very small screens */
+    }
+}
