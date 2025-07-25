@@ -15,18 +15,18 @@ body {
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-/* Global Background Effect (Particles.js container) */
+
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* සියලුම content වලට යටින් තැබීමට */
-    background-color: #0a0a0a; /* Particles.js සඳහා පසුබිම් වර්ණය */
+    z-index: -2; 
+    background-color: #0a0a0a; 
 }
 
-/* Mouse Trail Effect Container */
+
 #mouse-trail-container {
     position: fixed;
     top: 0;
