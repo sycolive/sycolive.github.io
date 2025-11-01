@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert;
+            alert('Your message has been sent (Demo Mode).');
             console.log('Form submitted!');
             this.reset();
         });
@@ -99,13 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         animatedHeadings.forEach(heading => {
+            const section = heading.closest('.section');
+            if (!section) return; // Skip if no section parent
+
             const scrollY = window.scrollY;
-            const sectionTop = heading.closest('.section').offsetTop;
-            const scrollFactor = 0.1; // Adjust for stronger/weaker effect (reduced for smoother effect)
+            const sectionTop = section.offsetTop;
+            const scrollFactor = 0.1; 
 
             // Only apply parallax if heading is within viewport or near
-            // Added some buffer for entry/exit
-            if (scrollY + window.innerHeight * 0.8 > sectionTop && scrollY < sectionTop + heading.offsetHeight + window.innerHeight * 0.2) {
+            if (scrollY + window.innerHeight * 0.8 > sectionTop && scrollY < sectionTop + section.offsetHeight + window.innerHeight * 0.2) {
                 const offset = (scrollY - sectionTop) * scrollFactor;
                 heading.style.setProperty('--scroll-y', `${offset}px`);
             } else {
@@ -113,6 +115,157 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- VPN Modal Functionality (VLESS Tabs and Copy) ---
+    const vpnModal = document.getElementById('vpn-modal');
+    const openVpnModalBtn = document.querySelector('.open-vpn-modal');
+    const vpnCloseBtn = document.querySelector('.vpn-close-btn');
+    const tabButtons = document.querySelectorAll('#vpn-modal .tab-button');
+    const tabContents = document.querySelectorAll('#vpn-modal .tab-content');
+
+
+    // Open VPN Modal
+    if (openVpnModalBtn) {
+        openVpnModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            vpnModal.style.display = 'block';
+        });
+    }
+
+    // Close VPN Modal Button
+    if (vpnCloseBtn) {
+        vpnCloseBtn.addEventListener('click', () => {
+            vpnModal.style.display = 'none';
+        });
+    }
+
+    // Close VPN Modal on Outside Click
+    if (vpnModal) {
+        window.addEventListener('click', (event) => {
+            if (event.target == vpnModal) {
+                vpnModal.style.display = 'none';
+            }
+        });
+    }
+
+    // VPN Modal Tab Switching Logic
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.dataset.tab;
+
+            // Deactivate all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Activate the clicked button and corresponding content
+            button.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+    
+    // --- VLESS File Copy Logic for VPN Modal ---
+    const vlessContainer = document.querySelector('#vpn-modal');
+    if (vlessContainer) {
+        vlessContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('copy-btn')) {
+                const configInput = e.target.closest('.vless-file-item').querySelector('.vless-config');
+                
+                // Select the text field
+                configInput.select();
+                configInput.setSelectionRange(0, 99999); // For mobile devices
+
+                // Copy the text inside the text field
+                navigator.clipboard.writeText(configInput.value).then(() => {
+                    // Change button text temporarily
+                    const originalText = e.target.textContent;
+                    e.target.textContent = 'Copied!';
+                    e.target.style.backgroundColor = '#4CAF50';
+                    setTimeout(() => {
+                        e.target.textContent = originalText;
+                        e.target.style.backgroundColor = ''; // Revert to original CSS
+                    }, 1500);
+                }).catch(err => {
+                    console.error('Could not copy text: ', err);
+                    alert('Copy failed! Please manually copy the VLESS configuration.');
+                });
+            }
+        });
+    }
+    // --- End VPN Modal Functionality ---
+
+
+    // --- Facebook Security Guide Modal Functionality (REPLACED Quiz Logic) ---
+    const fbGuideModal = document.getElementById('fb-guide-modal');
+    const openFbGuideModalBtn = document.querySelector('.open-fb-guide-modal');
+    const fbGuideCloseBtn = document.querySelector('.fb-guide-close-btn');
+
+    // Open FB Guide Modal
+    if (openFbGuideModalBtn) {
+        openFbGuideModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            fbGuideModal.style.display = 'block';
+        });
+    }
+
+    // Close FB Guide Modal Button
+    if (fbGuideCloseBtn) {
+        fbGuideCloseBtn.addEventListener('click', () => {
+            fbGuideModal.style.display = 'none';
+        });
+    }
+
+    // Close FB Guide Modal on Outside Click
+    if (fbGuideModal) {
+        window.addEventListener('click', (event) => {
+            if (event.target == fbGuideModal) {
+                fbGuideModal.style.display = 'none';
+            }
+        });
+    }
+    // --- End Facebook Security Guide Modal Functionality ---
+
+
+    // --- Facebook Monetization Video Modal Functionality (Updated for Google Drive Embed) ---
+    const monetizationVideoModal = document.getElementById('monetization-video-modal');
+    const openMonetizationVideoModalBtn = document.querySelector('.open-monetization-video-modal');
+    const monetizationVideoCloseBtn = document.querySelector('.monetization-video-close-btn');
+    const videoIframe = monetizationVideoModal.querySelector('iframe'); 
+
+    // Open Monetization Video Modal
+    if (openMonetizationVideoModalBtn) {
+        openMonetizationVideoModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            monetizationVideoModal.style.display = 'block';
+        });
+    }
+
+    // Close Monetization Video Modal Button
+    if (monetizationVideoCloseBtn) {
+        monetizationVideoCloseBtn.addEventListener('click', () => {
+            monetizationVideoModal.style.display = 'none';
+            // Stop/Pause video manually by reloading the iframe (Drive video does not have reliable pause API)
+            if (videoIframe) {
+                const currentSrc = videoIframe.src;
+                videoIframe.src = currentSrc; // Reloading the source stops playback
+            }
+        });
+    }
+
+    // Close Monetization Video Modal on Outside Click
+    if (monetizationVideoModal) {
+        window.addEventListener('click', (event) => {
+            if (event.target == monetizationVideoModal) {
+                monetizationVideoModal.style.display = 'none';
+                // Stop/Pause video manually by reloading the iframe
+                if (videoIframe) {
+                    const currentSrc = videoIframe.src;
+                    videoIframe.src = currentSrc; // Reloading the source stops playback
+                }
+            }
+        });
+    }
+    // --- End Facebook Monetization Video Modal Functionality ---
+
 
     // Lightbox Functionality for Gallery
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -134,7 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target === lightboxImg || e.target === lightboxCaption) { // Close if clicked outside the image or on image/caption
+        // Only close if clicked on the overlay itself or the elements it contains (safeguard)
+        if (e.target.id === 'lightbox' || e.target === lightboxImg || e.target === lightboxCaption) { 
             lightbox.style.display = 'none';
         }
     });
