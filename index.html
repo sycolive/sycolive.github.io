@@ -103,6 +103,36 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="service-item" data-service-id="vpn-setup">
+                        <div class="service-header">
+                            <i class="fas fa-network-wired service-icon"></i>
+                            <h3>Premium VPN/VLESS Setup</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Providing custom, high-speed, and secure VLESS configurations for professional and private use, going beyond free offerings.</p>
+                            <ul>
+                                <li>Guaranteed stable Singapore (SG) server links.</li>
+                                <li>Custom configuration profiles for NetMod/V2Ray clients.</li>
+                                <li>24/7 technical support for connection issues.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-item" data-service-id="page-monetization">
+                        <div class="service-header">
+                            <i class="fas fa-chart-line service-icon"></i>
+                            <h3>Facebook Page Monetization Consulting</h3>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Professional consultation and guidance on setting up, optimizing, and qualifying your Facebook Page for monetization (Ads on Reels, In-Stream Ads).</p>
+                            <ul>
+                                <li>Eligibility criteria analysis and optimization.</li>
+                                <li>Content strategy development for high revenue.</li>
+                                <li>Technical setup of monetization tools.</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="service-item" data-service-id="privacy-settings">
                         <div class="service-header">
                             <i class="fas fa-user-lock service-icon"></i>
@@ -154,13 +184,19 @@
                         <i class="fas fa-shield-alt free-service-icon"></i>
                         <h3>Best Facebook security settings</h3>
                         <p>Essential settings to ensure maximum security for your Facebook account.</p>
-                        <a href="#" class="btn-small">Learn more</a>
+                        <a href="#" class="btn-small open-fb-guide-modal">View Guide</a>
                     </div>
                     <div class="free-service-item animate__animated animate__fadeInUp animate__delay-2s">
                         <i class="fas fa-money-bill-wave free-service-icon"></i>
                         <h3>Facebook Page Monetization Tools</h3>
                         <p>Basic knowledge of the tools and methods that can help you make money through your Facebook page.</p>
-                        <a href="#" class="btn-small">Learn more</a>
+                        <a href="#" class="btn-small open-monetization-video-modal">Watch Video</a>
+                    </div>
+                    <div class="free-service-item animate__animated animate__fadeInUp animate__delay-3s">
+                        <i class="fas fa-globe free-service-icon"></i>
+                        <h3>FREE SG VPN (NetMod File)</h3>
+                        <p>Get a high-speed, secure VLESS configuration file for your NetMod VPN client.</p>
+                        <a href="#" class="btn-small open-vpn-modal">Download Files</a>
                     </div>
                 </div>
             </div>
@@ -176,8 +212,19 @@
                 <p>Our goal is to give you complete peace of mind about Facebook security.</p>
             </div>
         </section>
-
         
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="animated-heading">Image Gallery</h2>
+                <p class="section-description">See some screenshots and examples of our successful security work.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item animate__animated animate__fadeInUp" data-src="images/gallery1-large.jpg" data-caption="Successful Account Recovery">
+                        <img src="images/gallery1-thumb.jpg" alt="Gallery Image 1">
+                        <div class="gallery-overlay"><p>Account Recovery</p></div>
+                    </div>
+                    <div class="gallery-item animate__animated animate__fadeInUp animate__delay-1s" data-src="images/gallery2-large.jpg" data-caption="2FA Setup Confirmation">
+                        <img src="images/gallery2-thumb.jpg" alt="Gallery Image 2">
+                        <div class="gallery-overlay"><p>Security Setup</p></div>
                     </div>
                 </div>
                 <div id="lightbox" class="lightbox">
@@ -257,6 +304,184 @@
             <p>© 2025 SYCO SECURITY. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="monetization-video-modal" class="vpn-modal">
+        <div class="vpn-modal-content">
+            <span class="monetization-video-close-btn">&times;</span>
+            <h2 class="vpn-modal-heading">Facebook Page Monetization Guide</h2>
+            <p class="vpn-modal-description">Watch our detailed video guide to understand how to monetize your Facebook page.</p>
+            <div class="video-responsive">
+                <iframe width="560" height="315" src="https://drive.google.com/file/d/1eVHzaNhyFTH1ZSZen1E1xA8Z0_8sb3an/preview" frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="vpn-modal" class="vpn-modal">
+        <div class="vpn-modal-content pro-vpn-design">
+            <span class="vpn-close-btn">&times;</span>
+            <h2 class="vpn-modal-heading">FREE SG VLESS/NetMod Files</h2>
+            <p class="vpn-modal-description">Select your network provider to get the latest VLESS configuration files.</p>
+            
+            <p class="vpn-warning-highlight animate__animated animate__flash animate__infinite">
+                ( This VPN works for 07 days. If you want to BUY a 30 DAY VPN, send a Whatsapp message - 
+                <a href="https://wa.me/94740506817" target="_blank">074 050 6817</a> - 
+            )
+            </p>
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active animated-tab" data-tab="dialog-vless-content">Dialog</button>
+                    <button class="tab-button animated-tab" data-tab="slt-vless-content">SLT</button>
+                    <button class="tab-button animated-tab" data-tab="hutch-vless-content">Hutch</button>
+                    <button class="tab-button animated-tab" data-tab="airtel-vless-content">Airtel</button>
+                    <button class="tab-button animated-tab" data-tab="mobitel-vless-content">Mobitel</button>
+                </div>
+
+                <div class="tab-contents">
+                    <div id="dialog-vless-content" class="tab-content active">
+                        <h3>Dialog VLESS Files (SG)</h3>
+                        <div class="vless-file-list">
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Dialog Zoom</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="dialog-zoom">Copy</button>
+                            </div>
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Dialog Social Media</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="dialog-social">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slt-vless-content" class="tab-content">
+                        <h3>SLT VLESS Files (SG)</h3>
+                        <div class="vless-file-list">
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">SLT ZOOM</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="slt-zoom">Copy</button>
+                            </div>
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">SLT Fiber Netflix</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="slt-netflix">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="hutch-vless-content" class="tab-content">
+                        <h3>Hutch VLESS Files (SG)</h3>
+                        <div class="vless-file-list">
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Hutch 505/265 Gaming Package</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="hutch-gaming">Copy</button>
+                            </div>
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Hutch Zoom</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="hutch-zoom">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="airtel-vless-content" class="tab-content">
+                        <h3>Airtel VLESS Files (SG)</h3>
+                        <div class="vless-file-list">
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Airtel Zoom</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="airtel-zoom">Copy</button>
+                            </div>
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Airtel 498</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="airtel-498">Copy</button>
+                            </div>
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Airtel Tik Tok Unlimited</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="airtel-tiktok">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mobitel-vless-content" class="tab-content">
+                        <h3>Mobitel VLESS Files (SG)</h3>
+                        <div class="vless-file-list">
+                            <div class="vless-file-item">
+                                <span class="vless-file-name animated-file-name">Mobitel Zoom</span>
+                                <input type="text" class="vless-config" value="nm-vless://jzp7WO9cIzR0x9POr7NJH49RzRbImiZ2+dFiYcxlRdZJ7u3nHj3BNAm8KOCERbdXjHnFF9fEEnzrR6AXRnN/5aEYQSHk9C7z9PRojrkK+8YPsjx/JAMd12SnpwYvdZf85g9RVhQNuwEe/BIxdAGeYypd7V/ggDrAH35Fo6jhsLnbeI34ANdE9HCjGi1B0X3gzVc8z5PahBdBIZAybtDe5pJv4y2gc6mStSTW0w+XiI0guvj49O8cnEKfpnx5vobklT7Llovh+6Qp6e6+7hOaiw==" readonly>
+                                <button class="copy-btn" data-vless-id="mobitel-zoom">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fb-guide-modal" class="vpn-modal">
+        <div class="vpn-modal-content">
+            <span class="fb-guide-close-btn">&times;</span>
+            <h2 class="vpn-modal-heading">Best Facebook Security Settings Guide</h2>
+            <p class="vpn-modal-description">A comprehensive, step-by-step guide to secure every aspect of your Facebook account.</p>
+            <div class="security-guide-text">
+                <h3 class="guide-sub-heading">1. Two-Factor Authentication (2FA) Setup</h3>
+                <p>This is the most critical step. Enable 2FA using an authenticator app (like Google Authenticator or Duo) rather than SMS for maximum security.</p>
+                <ul>
+                    <li>Go to **Settings & Privacy > Settings > Security and Login.**</li>
+                    <li>Select **"Use two-factor authentication."**</li>
+                    <li>Choose **"Authentication App"** (recommended) or **"Text Message (SMS)."**</li>
+                    <li>**IMPORTANT:** Backup the recovery codes in a safe place!</li>
+                </ul>
+
+                <h3 class="guide-sub-heading">2. Security and Login Alerts</h3>
+                <p>Ensure you get notified of any suspicious login attempts or unrecognized devices immediately.</p>
+                <ul>
+                    <li>Under **Security and Login**, set up alerts for unrecognized logins via **Email, Messenger, and Facebook notifications.**</li>
+                    <li>Regularly check the **"Where You're Logged In"** section and log out of any devices you don't recognize.</li>
+                    <li>Change your password if you see any unknown devices.</li>
+                </ul>
+                
+                <h3 class="guide-sub-heading">3. Friend Request and Tagging Review</h3>
+                <p>Control who can interact with your profile and share your posts for better privacy.</p>
+                <ul>
+                    <li>Go to **Settings > Privacy.**</li>
+                    <li>Set **"Who can send you friend requests?"** to **"Friends of friends."**</li>
+                    <li>Enable **"Review posts you're tagged in before the post appears on your profile."**</li>
+                    <li>Set **"Who can see your future posts?"** to **"Friends"** or **"Custom"** (not Public).</li>
+                </ul>
+                
+                <h3 class="guide-sub-heading">4. Limit Past Posts (Bulk Privacy)</h3>
+                <p>Apply privacy restrictions to your old posts in bulk to hide them from the public.</p>
+                <ul>
+                    <li>Go to **Settings > Privacy.**</li>
+                    <li>Use the option: **"Limit who can see posts you've shared with friends of friends or Public?"** to change them all to **"Friends"** privacy level.</li>
+                </ul>
+                
+                <h3 class="guide-sub-heading">5. Remove Unused Apps/Websites</h3>
+                <p>Third-party apps often request excessive permissions and can be security risks. Remove access from apps you no longer use.</p>
+                <ul>
+                    <li>Go to **Settings > Apps and Websites.**</li>
+                    <li>Remove any apps/games that you haven't used recently or don't fully trust. Choose the option to **"Delete posts, videos, or events these apps published on your timeline."**</li>
+                </ul>
+                
+                <h3 class="guide-sub-heading">6. Trusted Contacts</h3>
+                <p>Set up trusted contacts who can help you recover your account if you lose access (e.g., forgotten password or hacking).</p>
+                <ul>
+                    <li>Go to **Settings > Security and Login > Setting up extra security.**</li>
+                    <li>Select 3-5 close, trusted friends who can send you a special recovery code if needed.</li>
+                </ul>
+
+                <p class="guide-footer-note">
+                    By following these steps, you can achieve a "Pro-Level" of security for your Facebook account. If you need professional assistance to secure your account, please check our **Our Services** section or <a href="#contact">contact us directly</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
